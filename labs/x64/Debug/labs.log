@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\user\Desktop\прога_v.2.0\labs\main.cpp(11,6): warning C4101: digit: неиспользованная локальная переменная
+C:\Users\user\Desktop\прога_v.2.0\labs\main.cpp(12,9): warning C4101: position: неиспользованная локальная переменная
+  labs.vcxproj -> C:\Users\user\Desktop\прога_v.2.0\labs\x64\Debug\labs.exe

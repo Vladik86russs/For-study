@@ -1,0 +1,2 @@
+C:\Users\Виктория\Desktop\прога\labs\Debug\labs.exe
+C:\Users\Виктория\Desktop\прога\labs\Debug\labs.pdb
