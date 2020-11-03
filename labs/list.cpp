@@ -6,7 +6,7 @@ using namespace std;
 
 myList::myList(int digitIn)
 {
-	head = new LinkedList;
+	head = new NodeOfList;
 	head->next = NULL;
 	head->data = digitIn;
 	tail = head;
@@ -21,6 +21,7 @@ myList::myList()
 
 myList::~myList()
 {
+	clear();
 }
 
 
@@ -44,7 +45,7 @@ void myList::clear()
 	now = head;
 	for (int i = 0; i < countNodes; i++) // cycle to delete nodes
 	{
-		LinkedList* removable = now;
+		NodeOfList* removable = now;
 		now = now->next;
 		delete removable;
 	}
@@ -54,19 +55,19 @@ void myList::clear()
 }
 
 
-size_t myList::find_first(myList otherList)
+size_t myList::find_first(myList* otherList)
 {
 
-	if (otherList.isEmpty() || isEmpty()) throw invalid_argument("list is empty");
+	if (otherList->isEmpty() || isEmpty()) throw invalid_argument("list is empty");
 	now = head;
 	for (int i = 0; i < countNodes; i++) // looking for first coincidence
 	{
-		if (at(i) == otherList.at(0))  
+		if (at(i) == otherList->at(0)) 
 		{
-			for (int j = 1; j < otherList.get_size(); j++) // checking other nodes
+			for (int j = 1; j < otherList->get_size(); j++) // checking other nodes
 			{
-				if (at(i + j) != otherList.at(j)) break;
-				if (j == otherList.get_size() - 1) return size_t(i);
+				if (at(i + j) != otherList->at(j)) break;
+				if (j == otherList->get_size() - 1) return size_t(i);
 			}
 		}
 	}
@@ -93,7 +94,7 @@ void myList::insert(int digitIn, size_t position)
 		{
 			now = now->next;
 		}
-		LinkedList* inserted = new LinkedList; // creating node
+		NodeOfList* inserted = new NodeOfList; // creating node
 		inserted->data = digitIn;
 		inserted->next = now->next;
 		now->next = inserted;
@@ -102,7 +103,7 @@ void myList::insert(int digitIn, size_t position)
 	}
 	else
 	{
-		LinkedList* inserted = new LinkedList;
+		NodeOfList* inserted = new NodeOfList;
 		inserted->data = digitIn;
 		inserted->next = head;
 		head = inserted;
@@ -181,14 +182,14 @@ void myList::push_back(int digitIn)
 {
 	if (head == NULL)
 	{
-		head = new LinkedList;
+		head = new NodeOfList;
 		tail = head;
 		head->data = digitIn;
 		countNodes++;
 	}
 	else
 	{
-		tail->next = new LinkedList;
+		tail->next = new NodeOfList;
 		tail = tail->next;
 		tail->data = digitIn;
 		tail->next = NULL;
@@ -201,14 +202,14 @@ void myList::push_front(int digitIn)
 {
 	if (head == NULL)
 	{
-		head = new LinkedList;
+		head = new NodeOfList;
 		tail = head;
 		head->data = digitIn;
 		countNodes++;
 	}
 	else
 	{
-		now = new LinkedList;
+		now = new NodeOfList;
 		now->next = head;
 		now->data = digitIn;
 		head = now;
@@ -230,13 +231,13 @@ void myList::remove(size_t position)
 		{
 			now = now->next;
 		}
-		LinkedList* removable = now->next;
+		NodeOfList* removable = now->next;
 		now->next = removable->next;
 		delete removable;
 	}
 	else
 	{
-		LinkedList* removable = head;
+		NodeOfList* removable = head;
 		head = head->next;
 		delete removable;
 	}

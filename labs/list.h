@@ -17,15 +17,15 @@ public:
 	void clear(); // method to clear list
 	void set(size_t position, int digitIn); // method t change data of element
 	bool isEmpty(); // method to find out if the list is empty
-	size_t find_first(myList otherList); // method to find out position second list in first list
+	size_t find_first(myList* otherList); // method to find out position second list in first list
 private:
-	struct LinkedList
+	struct NodeOfList
 	{
 		int data;
-		LinkedList* next;
+		NodeOfList* next;
 	};
-	LinkedList* head;
-	LinkedList* tail;
-	LinkedList* now;
-	int countNodes = 0; // count of nodes
+	NodeOfList* head;
+	NodeOfList* tail;
+	NodeOfList* now;
+	size_t countNodes = 0; // count of nodes
 };

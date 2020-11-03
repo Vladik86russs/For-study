@@ -7,21 +7,13 @@ using namespace std;
 
 int main()
 {
-	myList mark;
-	int digit;
-	size_t position;
+	myList mark, mark2;
 	for (int i = 0; i < 10; i++)
 		mark.push_back(i);
-	mark.print_to_console();
-	for (int i = 0; i < 3; i++) 
-	{
-		cout << "\nmethod pop_back is worked\n";
-		mark.pop_back();
-		mark.print_to_console();
-		cout << "\nmethod pop_front is worked\n";
-		mark.pop_front();
-		mark.print_to_console();
-	}
-	
-
+	for (int i = 3; i < 10; i++)
+		mark2.push_back(i);
+	cout << mark.find_first(&mark2);
+	cout << endl;
+	mark2.print_to_console();
+	return 0;
 }
