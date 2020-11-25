@@ -1,0 +1,11 @@
+﻿  main.cpp
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(48,24): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(58,25): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(78,28): warning C4018: <=: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(96,28): warning C4018: <=: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(107,25): warning C4018: <=: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(120,24): warning C4018: <=: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(135,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(141,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\прога_v.2.0\sorts\main.cpp(146,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  sorts.vcxproj -> C:\Users\user\Desktop\прога_v.2.0\sorts\Debug\sorts.exe
