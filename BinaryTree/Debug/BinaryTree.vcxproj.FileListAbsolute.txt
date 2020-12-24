@@ -1,2 +1,0 @@
-C:\Users\user\Desktop\прога_v.2.0\BinaryTree\Debug\BinaryTree.exe
-C:\Users\user\Desktop\прога_v.2.0\BinaryTree\Debug\BinaryTree.pdb
