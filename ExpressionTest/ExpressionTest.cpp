@@ -43,7 +43,9 @@ namespace ExpressionTest
 			string str = "cos(1,5)";
 			expression.createExp(str);
 			expression.postfix(&pfExpression);
-			Assert::AreEqual( abs(std::cos(1.5) - pfExpression.result()) <= 0.001, true);
+			double res;
+			pfExpression.result(res);
+			Assert::AreEqual( abs(std::cos(1.5) - res) <= 0.001, true);
 		}
 
 		TEST_METHOD(ctgTest)
@@ -52,7 +54,9 @@ namespace ExpressionTest
 			string str = "ctg(1,5)";
 			expression.createExp(str);
 			expression.postfix(&pfExpression);
-			Assert::AreEqual(abs(std::cos(1.5)/std::sin(1.5) - pfExpression.result()) <= 0.001, true);
+			double res;
+			pfExpression.result(res);
+			Assert::AreEqual(abs(std::cos(1.5)/std::sin(1.5) - res) <= 0.001, true);
 		}
 
 
@@ -62,7 +66,9 @@ namespace ExpressionTest
 			string str = "tg(1,5)";
 			expression.createExp(str);
 			expression.postfix(&pfExpression);
-			Assert::AreEqual(abs(std::sin(1.5) / std::cos(1.5) - pfExpression.result()) <= 0.001, true);
+			double res;
+			pfExpression.result(res);
+			Assert::AreEqual(abs(std::sin(1.5) / std::cos(1.5) - res) <= 0.001, true);
 		}
 
 
@@ -72,7 +78,9 @@ namespace ExpressionTest
 			string str = "1,5^3,6";
 			expression.createExp(str);
 			expression.postfix(&pfExpression);
-			Assert::AreEqual(abs(pow(1.5, 3.6) - pfExpression.result()) <= 0.001, true);
+			double res;
+			pfExpression.result(res);
+			Assert::AreEqual(abs(pow(1.5, 3.6) - res) <= 0.001, true);
 		}
 
 
@@ -82,7 +90,9 @@ namespace ExpressionTest
 			string str = "ln(14,6)";
 			expression.createExp(str);
 			expression.postfix(&pfExpression);
-			Assert::AreEqual(abs(std::log(14.6) - pfExpression.result()) <= 0.001, true);
+			double res;
+			pfExpression.result(res);
+			Assert::AreEqual(abs(std::log(14.6) - res) <= 0.001, true);
 		}
 
 
@@ -92,7 +102,9 @@ namespace ExpressionTest
 			string str = "log(14,6)";
 			expression.createExp(str);
 			expression.postfix(&pfExpression);
-			Assert::AreEqual(abs(std::log10(14.6) - pfExpression.result()) <= 0.001, true);
+			double res;
+			pfExpression.result(res);
+			Assert::AreEqual(abs(std::log10(14.6) - res) <= 0.001, true);
 		}
 
 
@@ -113,7 +125,9 @@ namespace ExpressionTest
 			string infix = "3*4^2+(-2+6*7)";
 			expression.createExp(infix);
 			expression.postfix(&pfExpression);
-			Assert::AreEqual(pfExpression.result(), 88.0);
+			double res;
+			pfExpression.result(res);
+			Assert::AreEqual(res, 88.0);
 		}
 
 		TEST_METHOD(sinTest)
@@ -122,7 +136,9 @@ namespace ExpressionTest
 			string str = "sin(1,5)";
 			expression.createExp(str);
 			expression.postfix(&pfExpression);
-			Assert::AreEqual(abs(std::sin(1.5) - pfExpression.result()) <= 0.001, true);
+			double res;
+			pfExpression.result(res);
+			Assert::AreEqual(abs(std::sin(1.5) - res) <= 0.001, true);
 		}
 	};
 }

@@ -1,11 +1,11 @@
 ﻿  ExpressionTest.cpp
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(325,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(334,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(340,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(398,24): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(444,52): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(465,23): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(467,23): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(482,27): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
-C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(484,27): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(343,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(352,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(358,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(419,24): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(465,52): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(486,23): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(488,23): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(503,27): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
+C:\Users\user\Desktop\прога_v.2.0\kursach\Expression.cpp(505,27): warning C4244: аргумент: преобразование "size_t" в "double", возможна потеря данных
   ExpressionTest.vcxproj -> C:\Users\user\Desktop\прога_v.2.0\kursach\x64\Debug\ExpressionTest.dll

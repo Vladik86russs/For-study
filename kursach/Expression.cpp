@@ -75,6 +75,16 @@ size_t Expression::get_size()
 int Expression::createExp(string str)
 {
 	if (str.size() == 0) throw out_of_range("string is empty");
+	//removing spaces
+	for (int i = 0; i < str.size(); i++)
+	{
+		if (str[i] == ' ')
+		{
+			str.erase(i, 1);
+			i--;
+		}
+	}
+	//creating expression
 	for (int i = 0; i < str.size(); i++)
 	{
 		string el;
@@ -121,7 +131,7 @@ int Expression::createExp(string str)
 			else if (el == "sh") push_back("sh", function, extra);
 			else if (el == "pi") push_back("pi", digit, low);
 			else if (el == "e") push_back("e", digit, low);
-			else return i;
+			else push_back(el, function, low);
 			//return the lost one
 			i = j - 1;
 		}
@@ -190,6 +200,7 @@ int Expression::checkForErrors()
 		}
 		else if (cur->type == function)
 		{
+			if (cur->prior == low) return i;
 			// if there is a next
 			if (cur->next != NULL)
 			{
@@ -353,10 +364,10 @@ double Expression::string_to_double(string digit)
 	return dDigit;
 }
 
-double Expression::result()
+int Expression::result(double& result)
 {
 	if (countNodes == 0) throw out_of_range("Expression is empty");
-	node* cur = head; Stack <double> stack;
+	node* cur = head; Stack <double> stack; int pos = 0;
 	do
 	{
 		if (cur->type == digit)
@@ -379,19 +390,22 @@ double Expression::result()
 			double A = stack.pop();
 			if (cur->element == "cos") A = cos(A);
 			else if (cur->element == "sin") A = sin(A);
-			else if (cur->element == "tg") A = tg(A);
-			else if (cur->element == "ctg") A = ctg(A);
+			else if (cur->element == "tg") if (cos(A) == 0) return pos; else A = tg(A);
+			else if (cur->element == "ctg") if (sin(A) == 0) return pos; else A = ctg(A);
 			else if (cur->element == "sh") A = sh(A);
-			else if (cur->element == "ln") A = ln(A);
-			else if (cur->element == "log") A = log(A);
-			else if (cur->element == "sqrt") A = sqrt(A);
+			else if (cur->element == "ln") if (A <= 0) return pos; else A = ln(A);
+			else if (cur->element == "log") if (A <= 0) return pos; else A = log(A);
+			else if (cur->element == "sqrt") if (A < 0) return pos; else A = sqrt(A);
 			else if (cur->element == "-") A = -A;
 			stack.push(A);
 		}
 		cur = cur->next;
+		pos++;
 	} while (cur != NULL);
-	return stack.pop();
+	result = stack.pop();
+	return -1;
 }
+
 
 // natural logarithm
 double Expression::ln(double x)

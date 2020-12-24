@@ -11,6 +11,29 @@ void SetColor(int text)
 	SetConsoleTextAttribute(console,  (( 15 << 4) | text));
 }
 
+void Error(Expression* exp, int posError)
+{
+	for (int i = 0; i < exp->get_size(); i++)
+	{
+		//set red color
+		if (i == posError) SetColor(12);
+		for (int j = 0; j < exp->at(i).size(); j++)
+			cout << exp->at(i)[j];
+		//set black color
+		if (i == posError) SetColor(0);
+	}
+	cout << "     <- Вы ввели выражение неверно";
+}
+
+void Answer(double result, Expression* pfExp)
+{
+	cout << "\n\tПостфиксная форма:\n\t";
+	for (int i = 0; i < pfExp->get_size(); i++)
+		cout << pfExp->at(i) << " ";
+	cout << "\n\tОтвет:\n\t";
+	cout << result;
+}
+
 int main()
 {
 	SetConsoleOutputCP(1251);
@@ -25,45 +48,23 @@ int main()
 		Expression exp;
 		Expression pfExp;
 		posError = exp.createExp(str);
-		// if there is error
-		if (posError != -1)
-		{
-			for (int i = 0; i < exp.get_size(); i++)
-			{
-				//set red color
-				if (i == posError) SetColor(12);
-				cout << exp.at(i);
-				//set black color
-				if (i == posError) SetColor(0);
-			}
-			cout << "     <- Вы ввели выражение неверно";
-			cout << "\nПопробовать еще раз? (Да/Нет) - ";
-			getline(cin, answer);
-			if (answer == "Да") flaqCycle = 1;
-			else if (answer == "Нет")
-			{
-				flaqCycle = 0;
-				cout << "\nДосвидули!";
-			}
-		}
-		// if there are not errors
+		if (posError != -1) Error(&exp, posError);
 		else
 		{
+			double result;
 			exp.postfix(&pfExp);
-			cout << "\n\tПостфиксная форма:\n\t";
-			for (int i = 0; i < pfExp.get_size(); i++)
-				cout << pfExp.at(i) << " ";
-			cout << "\n\tОтвет:\n\t";
-			cout << pfExp.result();
-			cout << "\nПопробовать еще раз? (Да/Нет) - ";
-			getline(cin, answer);
-			if (answer == "Да") flaqCycle = 1;
-			else if (answer == "Нет")
+			posError = pfExp.result(result);
+			if (posError != -1) Error(&exp, posError);
+			else Answer(result, &pfExp);
+		}
+		cout << "\nПопробовать еще раз? (Да/Нет) - ";
+		getline(cin, answer);
+		if (answer == "Да") flaqCycle = 1;
+		else if (answer == "Нет")
 			{
 				flaqCycle = 0;
 				cout << "\nДосвидули!\n";
 			}
-		}
 	} while (flaqCycle);
 	return 0;
 }

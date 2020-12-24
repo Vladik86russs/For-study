@@ -46,7 +46,7 @@ public:
 	int checkForErrors(); // for searching errors
 	void postfix(Expression*); // converts infix expression to postfix expression
 	double string_to_double(string);
-	double result(); // Calculates the answer for postfix expression
+	int result(double&); // Calculates the answer for postfix expression
 	double ln(double); //  natural logarithm
 	double log(double); // decimal logarithm
 	double exponent(double, double); // calculates the number in the degree
